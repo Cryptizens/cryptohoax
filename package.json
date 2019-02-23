@@ -7,7 +7,9 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "preproduction": "npm run build",
+    "production": "aws s3 cp dist/ s3://cryptohoax.cryptizens.io --recursive --profile cryptizens"
   },
   "dependencies": {
     "axios": "^0.17.1",
